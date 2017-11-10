@@ -8,7 +8,8 @@ import Base.BaseTest;
 public class VacationManagementTest extends BaseTest {
 	String userEmailText = "gap-automation-test@mailinator.com";
 	String passwordText = "12345678";
-	String expectedText = "";
+	String expectedCreatedText = "Employee was successfully created";
+	String employeeInfo = "";
 	String employeeName = "James Smith";
 	String employeeID = "1234567890";
 	String employeeEmail = "james.smith@automation.com";
@@ -17,27 +18,48 @@ public class VacationManagementTest extends BaseTest {
 	
 	SoftAssert softAssertion= new SoftAssert();
 	
-	@Test
-	public void test01() {
+	@Test(priority=1)
+	public void testLogin() {
 		signInPage.login(userEmailText, passwordText);
 		softAssertion.assertTrue(homePage.isUserLogged());
 	}
 	
-	@Test
-	public void test02() {
-		expectedText = "Signed in successfully.";
-		signInPage.login(userEmailText, passwordText);
-		softAssertion.assertTrue(homePage.getSignedText().contains(expectedText));
+	
+	@Test(priority=2)
+	public void testCreatingANewUser() {
+		
+		employeeInfo = signInPage.
+			login(userEmailText, passwordText).
+			goToCreateNewEmployee().
+			createNewEmployee(employeeName, employeeEmail, employeeID, leaderName, startDay).
+			getNoticeText();
+			
+		
+		softAssertion.assertTrue(employeeInfo.contains(expectedCreatedText));
+	
 	}
 	
-	@Test
-	public void test03() {
+	@Test(priority=3)
+	public void testVerifyPublicInfo() {
+
+		employeeInfo = signInPage.
+			goToPublicSitePage().
+			findEmployee(employeeID).
+			getEmployeeInfo();
+		
+		softAssertion.assertTrue(employeeInfo.contains(employeeName));
+	
+	}
+	
+	@Test(priority=4)
+	public void testDeleteUser() {
 
 		signInPage.
-			login(userEmailText, passwordText).
-			clickCreateNewEmployee().
-			createNewEmployee(employeeName, employeeEmail, employeeID, leaderName, startDay);
+				login(userEmailText, passwordText).
+				deleteEmployee(employeeName, leaderName).
+				acceptDeleteAlert();
 		
+		softAssertion.assertFalse((homePage.isEmployeeDisplayedOnTable(employeeName, leaderName)));
 	
 	}
 	

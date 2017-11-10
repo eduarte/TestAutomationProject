@@ -8,8 +8,10 @@
       <class name="Test.VacationManagementTest">
         <methods>
           <include name="closeDriver"/>
+          <include name="testCreatingANewUser"/>
+          <include name="testVerifyPublicInfo"/>
+          <include name="testDeleteUser"/>
           <include name="setup"/>
-          <include name="test03"/>
         </methods>
       </class> <!-- Test.VacationManagementTest -->
     </classes>

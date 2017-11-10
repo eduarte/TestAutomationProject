@@ -1,5 +1,7 @@
 package Pages;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,7 +31,7 @@ public class HomePage extends BasePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public NewEmployeePage clickCreateNewEmployee() {
+	public NewEmployeePage goToCreateNewEmployee() {
 		createNewEmployeeLink.click();
 		return new NewEmployeePage(driver);
 	}
@@ -45,6 +47,34 @@ public class HomePage extends BasePage {
 	public SignInPage clickLogout() {
 		logoutLink.click();
 		return new SignInPage(driver);
+	}
+	
+	private WebElement findInTable(String employeeName, String leadName) {
+		String[] name = employeeName.split(" ");
+		String xpath = ".//td[text()='"+ name[0] +"']/following-sibling::td[text()='"+ name[1] + "']/following-sibling::td[contains(text(),'" + leadName + "')]";
+		return listOfEmployeesTable.findElement(By.xpath("//tr["+ xpath +"]"));
+	}
+	
+	public HomePage deleteEmployee(String employeeName, String leadName) {
+		findInTable(employeeName,leadName).findElement(By.partialLinkText("Delete")).click();
+		
+		return new HomePage(driver);
+	}
+	
+	public HomePage acceptDeleteAlert() {
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		return new HomePage(driver);
+	}
+	
+	
+	public Boolean isEmployeeDisplayedOnTable(String employeeName, String leadName) {
+		try {
+			return findInTable(employeeName,leadName).isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}	
+		
 	}
 
 }

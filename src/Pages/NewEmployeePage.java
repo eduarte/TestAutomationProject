@@ -40,14 +40,16 @@ public class NewEmployeePage extends BasePage {
 	private WebElement createEmployeeButton;
 	Select dropdown = null;
 	
-	//employee_identification
+	@FindBy(how = How.ID, using = "notice")
+	private WebElement noticeText;
+	
 
 	public NewEmployeePage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
 	
-	public HomePage createNewEmployee(String employeeName,String employeeEmail, String employeeID, String leaderName, String startDay) {
+	public NewEmployeePage createNewEmployee(String employeeName,String employeeEmail, String employeeID, String leaderName, String startDay) {
 		String[] name = employeeName.split(" ");
 		setEmployeeName(name[0]).
 		setEmployeeLastName(name[1]).
@@ -56,7 +58,7 @@ public class NewEmployeePage extends BasePage {
 		setLeaderName(leaderName).
 		setStartDate(startDay).
 		clickCreateNewEmployee();
-		return new HomePage(driver);
+		return new NewEmployeePage(driver);
 	}
 	
 	private NewEmployeePage setEmployeeName(String employeeName) {
@@ -112,9 +114,13 @@ public class NewEmployeePage extends BasePage {
 		return new NewEmployeePage(driver);
 	}
 	
-	private HomePage clickCreateNewEmployee() {
+	private NewEmployeePage clickCreateNewEmployee() {
 		createEmployeeButton.click();
-		return new HomePage(driver);
+		return new NewEmployeePage(driver);
+	}
+	
+	public String getNoticeText() {
+		return noticeText.getText();
 	}
 
 }

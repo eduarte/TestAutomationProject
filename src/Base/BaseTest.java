@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -20,7 +22,7 @@ public class BaseTest {
 	protected HomePage homePage;
 	protected NewEmployeePage newEmployeePage;
 
-	@BeforeTest
+	@BeforeMethod
 	@Parameters({ "browser", "startURL" })
 	public void setup(String browser, String startURL)  {
 		createDriver(browser, startURL);
@@ -41,7 +43,7 @@ public class BaseTest {
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 			driver.get(startURL);
 			driver.manage().window().maximize();
@@ -52,7 +54,7 @@ public class BaseTest {
 		}
 	}
 
-	@AfterTest
+	@AfterMethod
 	public void closeDriver() {
 		driver.close();
 	}

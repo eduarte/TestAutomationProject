@@ -52,7 +52,6 @@ public class SignInPage extends BasePage {
 	}
 	
 	
-	
 	public HomePage login(String userEmailText, String passwordText) {
 		setUserName(userEmailText).
 		setPassword(passwordText).
