@@ -10,6 +10,7 @@
 				<methods>
                     <include name="startURL" />
                     <include name="browser" />
+                    <include name="test03" />
                 </methods>
 			</class>
 		</classes>

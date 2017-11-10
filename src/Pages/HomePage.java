@@ -10,7 +10,7 @@ import Base.BasePage;
 
 public class HomePage extends BasePage {
 	
-	@FindBy(how = How.PARTIAL_LINK_TEXT, using = "Create a new employee")
+	@FindBy(how = How.XPATH, using = ".//a[text()='Create a new employee']")
 	private WebElement createNewEmployeeLink;
 	
 	@FindBy(how = How.TAG_NAME, using = "table")
@@ -18,6 +18,11 @@ public class HomePage extends BasePage {
 	
 	@FindBy(how = How.CLASS_NAME, using = "flash_notice")
 	private WebElement signedText;
+	
+	@FindBy(how = How.XPATH, using = ".//a[text()='Logout']")
+	private WebElement logoutLink;
+	
+
 	
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -35,6 +40,11 @@ public class HomePage extends BasePage {
 	
 	public Boolean isUserLogged() {
 		return signedText.isDisplayed();
+	}
+	
+	public SignInPage clickLogout() {
+		logoutLink.click();
+		return new SignInPage(driver);
 	}
 
 }

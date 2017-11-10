@@ -8,8 +8,8 @@
       <class name="Test.VacationManagementTest">
         <methods>
           <include name="closeDriver"/>
-          <include name="test01"/>
           <include name="setup"/>
+          <include name="test03"/>
         </methods>
       </class> <!-- Test.VacationManagementTest -->
     </classes>

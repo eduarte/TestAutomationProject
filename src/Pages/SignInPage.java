@@ -21,6 +21,9 @@ public class SignInPage extends BasePage {
 	
 	@FindBy(how = How.PARTIAL_LINK_TEXT, using = "Forgot your password?")
 	private WebElement forgotPasswordLink;
+	
+	@FindBy(how = How.PARTIAL_LINK_TEXT, using = "public site")
+	private WebElement publicSiteLink;
 
 	public SignInPage(WebDriver driver) {
 		super(driver);
@@ -43,13 +46,19 @@ public class SignInPage extends BasePage {
 		return new SignInPage(driver);
 	}
 	
+	public PublicSitePage goToPublicSitePage() {
+		publicSiteLink.click();
+		return new PublicSitePage(driver);
+	}
 	
-	public SignInPage login(String userEmailText, String passwordText) {
+	
+	
+	public HomePage login(String userEmailText, String passwordText) {
 		setUserName(userEmailText).
 		setPassword(passwordText).
 		clickLoginButton();
 		
-		return new SignInPage(driver);
+		return new HomePage(driver);
 	}
 	
 

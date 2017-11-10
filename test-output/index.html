@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-TestSuite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-TestSuite" title="Test.VacationManagementTest" hash-for-method="test01">test01</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-TestSuite" title="Test.VacationManagementTest" hash-for-method="test03">test03</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestSuite -->
@@ -125,9 +125,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="test01">
-                  </a> <!-- test01 -->
-                  <span class="method-name">test01</span>
+                  <a name="test03">
+                  </a> <!-- test03 -->
+                  <span class="method-name">test03</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -150,6 +150,7 @@
         &lt;methods&gt;
           &lt;include name=&quot;startURL&quot;/&gt;
           &lt;include name=&quot;browser&quot;/&gt;
+          &lt;include name=&quot;test03&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- Test.VacationManagementTest --&gt;
     &lt;/classes&gt;
@@ -193,14 +194,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test01')
+data.setCell(0, 1, 'test03')
 data.setCell(0, 2, 'Test.VacationManagementTest')
-data.setCell(0, 3, 3370);
+data.setCell(0, 3, 14551);
 window.suiteTableData['TestSuite']= { tableData: data, tableDiv: 'times-div-TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-TestSuite">
               </div> <!-- times-div-TestSuite -->
             </div> <!-- times-div -->
@@ -215,9 +216,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-TestSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Test.VacationManagementTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">test02</span>
+                <br/>
+                <span class="ignored-method-name">test01</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-TestSuite" class="panel">
@@ -232,12 +242,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">test01</span>
-                <span class="method-start">6942 ms</span>
+                <span class="method-name">test03</span>
+                <span class="method-start">6934 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">closeDriver</span>
-                <span class="method-start">10316 ms</span>
+                <span class="method-start">21487 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
