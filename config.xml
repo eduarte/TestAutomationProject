@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="2" parallel="tests" verbose="10">
+	<parameter name="startURL" value="https://vacations-management.herokuapp.com/users/sign_in" />
+	<parameter name="browser" value="Chrome" />
+	
+	<test name="ChromeTest">
+		<classes>
+			<class name="Test.VacationManagementTest">
+				<methods>
+                    <include name="startURL" />
+                    <include name="browser" />
+                </methods>
+			</class>
+		</classes>
+	</test>
+</suite>
