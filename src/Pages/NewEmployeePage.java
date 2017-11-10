@@ -1,5 +1,8 @@
 package Pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -121,6 +124,36 @@ public class NewEmployeePage extends BasePage {
 	
 	public String getNoticeText() {
 		return noticeText.getText();
+	}
+	
+	public Boolean verifyEmployeeInformation(String successMessage, String employeeName,String employeeEmail, String employeeID, String leaderName, String startDay ) {
+		Boolean result = true;
+		String[] name = employeeName.split(" ");
+		startDay = startDay.replace("-", "/");
+		String [] employeeInfo = {
+				successMessage,
+				name[0],
+				name[1],
+				employeeEmail,
+				employeeID,
+				leaderName,
+				startDay
+				};
+		
+		List<WebElement> employeeInformation = driver.findElements(By.xpath(".//div[contains(@id,'content')]//p"));
+		int index = 0;
+		for (WebElement webElement : employeeInformation) {
+
+			if(webElement.getText().toLowerCase().contains(employeeInfo[index].toLowerCase())) {
+				index++;
+			}else {
+				result = false;
+				index++;
+			}
+			
+		}
+		
+		return result;
 	}
 
 }

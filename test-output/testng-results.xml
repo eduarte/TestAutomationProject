@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestSuite" duration-ms="28396" started-at="2017-11-10T20:36:23Z" finished-at="2017-11-10T20:36:51Z">
+    <groups>
+    </groups>
+    <test name="ChromeTest" duration-ms="28396" started-at="2017-11-10T20:36:23Z" finished-at="2017-11-10T20:36:51Z">
+      <class name="Test.VacationManagementTest">
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:Test.VacationManagementTest@1fdc050]" name="setup" is-config="true" duration-ms="7983" started-at="2017-11-10T14:36:23Z" finished-at="2017-11-10T14:36:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://vacations-management.herokuapp.com/users/sign_in]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testCreatingANewUser()[pri:2, instance:Test.VacationManagementTest@1fdc050]" name="testCreatingANewUser" duration-ms="17428" started-at="2017-11-10T14:36:31Z" finished-at="2017-11-10T14:36:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreatingANewUser -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:Test.VacationManagementTest@1fdc050]" name="closeDriver" is-config="true" duration-ms="2967" started-at="2017-11-10T14:36:48Z" finished-at="2017-11-10T14:36:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- Test.VacationManagementTest -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- TestSuite -->
+</testng-results>

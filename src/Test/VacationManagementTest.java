@@ -15,6 +15,7 @@ public class VacationManagementTest extends BaseTest {
 	String employeeEmail = "james.smith@automation.com";
 	String leaderName = "Emilio Duarte";
 	String startDay = "21-01-2016";
+	Boolean result = true;
 	
 	SoftAssert softAssertion= new SoftAssert();
 	
@@ -28,14 +29,13 @@ public class VacationManagementTest extends BaseTest {
 	@Test(priority=2)
 	public void testCreatingANewUser() {
 		
-		employeeInfo = signInPage.
+		result = signInPage.
 			login(userEmailText, passwordText).
 			goToCreateNewEmployee().
 			createNewEmployee(employeeName, employeeEmail, employeeID, leaderName, startDay).
-			getNoticeText();
-			
+			verifyEmployeeInformation(expectedCreatedText, employeeName, employeeEmail, employeeID, leaderName, startDay);
 		
-		softAssertion.assertTrue(employeeInfo.contains(expectedCreatedText));
+		softAssertion.assertTrue(result);
 	
 	}
 	
