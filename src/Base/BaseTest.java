@@ -22,7 +22,7 @@ public class BaseTest {
 
 	@BeforeMethod
 	@Parameters({ "browser", "startURL" })
-	public void setup(String browser, String startURL)  {
+	public void setup(String browser, String startURL) {
 		createDriver(browser, startURL);
 		signInPage = new SignInPage(driver);
 		homePage = new HomePage(driver);
@@ -35,10 +35,12 @@ public class BaseTest {
 		try {
 			driver = null;
 			if (browserType.toLowerCase().equals("chrome")) {
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
 				driver = new ChromeDriver();
 			} else if (browserType.toLowerCase().equals("firefox")) {
-				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver",
+						System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
